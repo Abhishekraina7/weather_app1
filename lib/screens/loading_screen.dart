@@ -16,11 +16,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     // Check if location service is enabled
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      // Location services are not enabled, show a dialog to enable them
-      _showLocationServiceDialog();
-      return;
-    }
+    if(!serviceEnabled)
+      {
+        _showLocationServiceDialog();
+      }
 
     // Request location permission
     permission = await Geolocator.requestPermission();

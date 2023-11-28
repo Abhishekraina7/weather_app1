@@ -9,6 +9,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void initState() {
     super.initState();
     _checkLocationStatus();
+    getLocation(); // Putting this function into this function will give output wihthout prompting the user to click anywhere(One the permission is given)
   }
   Future<void> _checkLocationStatus() async {
     bool serviceEnabled;
@@ -92,8 +93,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
       ),
     );
   }
-
-
   Future<void> getLocation()
   async {
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
@@ -101,16 +100,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            //Get the current location
-            getLocation();
-          },
-          child: const Text('Get Location'),
-        ),
-      ),
-    );
+    return const Scaffold();
   }
 }

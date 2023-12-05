@@ -21,7 +21,7 @@ void justSomething() {
    void task2()
   {
     // Until this this function gets completed the task 3 will not get executed
-    Duration time = Duration(seconds: 4);
+    Duration time = const Duration(seconds: 4);
     sleep(time);
     print('task 2 complete');
   }
@@ -42,7 +42,7 @@ void task4()
 }
 Future<String> task5 () async
 {
-  Duration seconds = Duration(seconds: 3);
+  Duration seconds = const Duration(seconds: 3);
    late String result;
   await Future.delayed(seconds,() {
      result = 'task 5 data';

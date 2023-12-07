@@ -1,4 +1,4 @@
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart'as http;  // used the as keyword to name this library as http
 
 
 class NetworkHelper{

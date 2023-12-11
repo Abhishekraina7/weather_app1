@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app1/utilities/constants.dart';
 class LocationScreen extends StatefulWidget {
-  const LocationScreen({super.key});
-
+  const LocationScreen({super.key, this.locationData});
+  final locationData;
   @override
   LocationScreenState createState() => LocationScreenState();
 }
-
 class LocationScreenState extends State<LocationScreen> {
+  @override
+  void initState()
+  {
+    // var id = jsonDecode(locationData)['weather'][0]['id'];
+    // var temp = jsonDecode(weatherData)['main']['temp'];
+    // var name = jsonDecode(weatherData)['name'];
+    print(widget.locationData);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

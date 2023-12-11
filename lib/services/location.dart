@@ -1,4 +1,4 @@
-
+//This file helps in getting the co-ordinates from the
 import 'package:geolocator/geolocator.dart';
 
 class Location{

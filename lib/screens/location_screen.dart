@@ -5,7 +5,7 @@ import 'package:weather_app1/utilities/constants.dart';
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key, this.locationData});
 
-  final locationData; // this is stateful widget object
+  final dynamic locationData; // this is stateful widget object
 
   @override
   LocationScreenState createState() => LocationScreenState();
@@ -23,15 +23,15 @@ class LocationScreenState extends State<LocationScreen> {
   void initState()
   {
     super.initState();
-    UpdateUi(widget.locationData); // here we accessed the stateful widget object inside the state
+    updateUi(widget.locationData); // here we accessed the stateful widget object inside the state
   }
 
-  void UpdateUi(dynamic Weatherdata)
+  void updateUi(dynamic weatherdata)
   {
-      condition  = jsonDecode(Weatherdata)['weather'][0]['id'];
-      temp = jsonDecode(Weatherdata)['main']['temp'];
+      condition  = jsonDecode(weatherdata)['weather'][0]['id'];
+      temp = jsonDecode(weatherdata)['main']['temp'];
       temperature = temp!.toInt();
-      cityname = jsonDecode(Weatherdata)['name'];
+      cityname = jsonDecode(weatherdata)['name'];
       message = weatherModel.getMessage(temperature!);
       condi = weatherModel.getWeatherIcon(condition!);
   }
@@ -89,7 +89,7 @@ class LocationScreenState extends State<LocationScreen> {
                 ),
               ),
                Padding(
-                padding: EdgeInsets.only(right: 15.0),
+                padding: const EdgeInsets.only(right: 15.0),
                 child: Text(
                   "$message time in $cityname",
                   textAlign: TextAlign.right,

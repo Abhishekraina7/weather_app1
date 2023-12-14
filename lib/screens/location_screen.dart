@@ -11,8 +11,6 @@ class LocationScreen extends StatefulWidget {
   LocationScreenState createState() => LocationScreenState();
 }
 class LocationScreenState extends State<LocationScreen> {
-  int ?condition;
-  double ?temp;
   int ?temperature;
   String ?cityname;
   String ?message;
@@ -28,12 +26,13 @@ class LocationScreenState extends State<LocationScreen> {
 
   void updateUi(dynamic weatherdata)
   {
-      condition  = jsonDecode(weatherdata)['weather'][0]['id'];
-      temp = jsonDecode(weatherdata)['main']['temp'];
-      temperature = temp!.toInt();
-      cityname = jsonDecode(weatherdata)['name'];
-      message = weatherModel.getMessage(temperature!);
-      condi = weatherModel.getWeatherIcon(condition!);
+    var condition  = jsonDecode(weatherdata)['weather'][0]['id'];
+    double temp = jsonDecode(weatherdata)['main']['temp'];
+    temperature = temp.toInt();
+    cityname = jsonDecode(weatherdata)['name'];
+    message = weatherModel.getMessage(temperature!);
+    condi = weatherModel.getWeatherIcon(condition!);
+
   }
 
   @override

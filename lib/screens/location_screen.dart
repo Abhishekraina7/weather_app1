@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:weather_app1/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app1/utilities/constants.dart';
+
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key, this.locationData});
 
@@ -26,6 +27,13 @@ class LocationScreenState extends State<LocationScreen> {
 
   void updateUi(dynamic weatherdata)
   {
+    if(weatherdata == null)
+      {
+        temperature = 0;
+        message = 'Unable to fetch weather ';
+        cityname ='';
+        condi = 'Error';
+      }
     var condition  = jsonDecode(weatherdata)['weather'][0]['id'];
     double temp = jsonDecode(weatherdata)['main']['temp'];
     temperature = temp.toInt();
@@ -57,7 +65,10 @@ class LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      var weatherData = await weatherModel.getLocationWeather();
+                      updateUi(weatherData);
+                    },
                     child: const Icon(
                       Icons.near_me,
                       size: 50.0,

@@ -101,7 +101,7 @@ class LocationScreenState extends State<LocationScreen> {
                Padding(
                 padding: const EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "$message time in $cityname",
+                  "$message in $cityname",
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),

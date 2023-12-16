@@ -45,22 +45,7 @@ class _CityScreenState extends State<CityScreen> {
                    style: TextStyle(
                      color: Colors.black,
                    ),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10.0),
-                      ),
-                      borderSide: BorderSide.none,
-
-                    ),
-                    hintText: 'Enter the city name',
-                    hintStyle: TextStyle(
-                      color: Colors.black38,
-                    ),
-
-                  ),
+                  decoration: kTextFieldInputDecoration,
               ),
                ),
 

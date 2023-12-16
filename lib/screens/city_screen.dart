@@ -40,13 +40,26 @@ class _CityScreenState extends State<CityScreen> {
                 child: null,
               ),
                Container(
-                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                 child: TextField(
+                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                 child: const TextField(
+                   style: TextStyle(
+                     color: Colors.black,
+                   ),
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                      borderSide: BorderSide.none,
+
+                    ),
                     hintText: 'Enter the city name',
+                    hintStyle: TextStyle(
+                      color: Colors.black38,
+                    ),
+
                   ),
               ),
                ),

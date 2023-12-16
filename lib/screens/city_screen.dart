@@ -39,6 +39,18 @@ class _CityScreenState extends State<CityScreen> {
                 padding: const EdgeInsets.all(20.0),
                 child: null,
               ),
+               Container(
+                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                 child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter the city name',
+                  ),
+              ),
+               ),
+
               TextButton(
                 onPressed: () {},
                 child: const Text(

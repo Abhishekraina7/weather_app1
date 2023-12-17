@@ -3,6 +3,7 @@ import 'package:weather_app1/services/networking.dart';
 const apiKey = 'cff04fd4ddb5170785082ae4465adcca'; // this is the api key from openweather site
 
 class WeatherModel {
+
 Future<dynamic> getLocationWeather() async{
 Location location = Location(); // Object of the Location class from the location.dart file
 await location.getCurrentposition();
@@ -14,8 +15,6 @@ NetworkHelper networkHelper = NetworkHelper(url);// object of Networkhelper clas
   var weatherData = await networkHelper.getData();
   return weatherData;
 }
-
-
 
 
   String getWeatherIcon(int condition) {

@@ -41,11 +41,15 @@ class _CityScreenState extends State<CityScreen> {
               ),
                Container(
                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                 child: const TextField(
-                   style: TextStyle(
+                 child:  TextField(
+                   style: const TextStyle(
                      color: Colors.black,
                    ),
                   decoration: kTextFieldInputDecoration,
+                   onChanged: (value)
+                   {
+                     print(value);
+                   },
               ),
                ),
 

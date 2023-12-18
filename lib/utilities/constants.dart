@@ -20,7 +20,7 @@ const kConditionTextStyle = TextStyle(
 );
 const kTextFieldInputDecoration = InputDecoration(
   filled: true,
-  fillColor: Colors.white,
+  fillColor: Colors.white,  
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(
       Radius.circular(10.0),

@@ -36,7 +36,7 @@ class LocationScreenState extends State<LocationScreen> {
         condi = 'Error';
       }
     var condition  = jsonDecode(weatherdata)['weather'][0]['id'];
-    double temp = jsonDecode(weatherdata)['main']['temp'];
+    var temp = jsonDecode(weatherdata)['main']['temp'];
     temperature = temp.toInt();
     cityname = jsonDecode(weatherdata)['name'];
     message = weatherModel.getMessage(temperature!);

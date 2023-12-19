@@ -1,20 +1,31 @@
 import 'package:weather_app1/services/location.dart';
 import 'package:weather_app1/services/networking.dart';
 const apiKey = 'cff04fd4ddb5170785082ae4465adcca'; // this is the api key from openweather site
+const callByCityNameApi = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
 
-Future<dynamic> getLocationWeather() async{
-Location location = Location(); // Object of the Location class from the location.dart file
-await location.getCurrentposition();
+  // This function helps fetching weatherdata using the cityname
 
-//stored the co-ordinates which came from the location.dart file
-var url = Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude!}&lon=${location.longitude!}&appid=$apiKey&units=metric');
+  Future<dynamic> getWeatherByCityName(String cityName)
+  async{
+      var url = Uri.parse('$callByCityNameApi?q=$cityName&appid=$apiKey&units=metric');
+      NetworkHelper networkHelper = NetworkHelper(url);
+      var weatherData = await networkHelper.getData();
+      return weatherData;
+  }
 
-NetworkHelper networkHelper = NetworkHelper(url);// object of Networkhelper class from networking.dart file
-  var weatherData = await networkHelper.getData();
-  return weatherData;
-}
+// This function helps in fetching the location your current postion using the location of your phone's GPS
+
+  Future<dynamic> getLocationWeather()
+  async{
+      Location location = Location();      // Object of the Location class from the location.dart file
+      await location.getCurrentposition();
+      var url = Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude!}&lon=${location.longitude!}&appid=$apiKey&units=metric');       //stored the co-ordinates which came from the location.dart file
+      NetworkHelper networkHelper = NetworkHelper(url);     // object of Networkhelper class from networking.dart file
+      var weatherData = await networkHelper.getData();
+      return weatherData;
+  }
 
 
   String getWeatherIcon(int condition) {

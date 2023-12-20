@@ -28,7 +28,8 @@ class LocationScreenState extends State<LocationScreen> {
 
   void updateUi(dynamic weatherdata)
   {
-    if(weatherdata == null)
+    setState(() {
+      if(weatherdata == null)
       {
         temperature = 0;
         message = 'Unable to fetch weather ';
@@ -36,15 +37,16 @@ class LocationScreenState extends State<LocationScreen> {
         condi = 'Error';
         return;
       }
-    try {
-      var condition = jsonDecode(weatherdata)['weather'][0]['id'];
-      var temp = jsonDecode(weatherdata)['main']['temp'];
-      temperature = temp.toInt();
-      cityname = jsonDecode(weatherdata)['name'];
-      message = weatherModel.getMessage(temperature!);
-      condi = weatherModel.getWeatherIcon(condition!);
-    }
-    catch(e) {print('Error handling JSON data: $e');}
+      try {
+        var condition = jsonDecode(weatherdata)['weather'][0]['id'];
+        var temp = jsonDecode(weatherdata)['main']['temp'];
+        temperature = temp.toInt();
+        cityname = jsonDecode(weatherdata)['name'];
+        message = weatherModel.getMessage(temperature!);
+        condi = weatherModel.getWeatherIcon(condition!);
+      }
+      catch(e) {print('Error handling JSON data: $e');}
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -84,7 +86,7 @@ class LocationScreenState extends State<LocationScreen> {
                       );
                       if(typeName != null)
                         {
-                           dynamic weatherData = await weatherModel.getWeatherByCityName(typeName);
+                           var weatherData = await weatherModel.getWeatherByCityName(typeName);
                            updateUi(weatherData);
                         }
                     },

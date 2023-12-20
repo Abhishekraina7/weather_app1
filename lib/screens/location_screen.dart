@@ -34,16 +34,18 @@ class LocationScreenState extends State<LocationScreen> {
         message = 'Unable to fetch weather ';
         cityname ='';
         condi = 'Error';
+        return;
       }
-    var condition  = jsonDecode(weatherdata)['weather'][0]['id'];
-    var temp = jsonDecode(weatherdata)['main']['temp'];
-    temperature = temp.toInt();
-    cityname = jsonDecode(weatherdata)['name'];
-    message = weatherModel.getMessage(temperature!);
-    condi = weatherModel.getWeatherIcon(condition!);
-
+    try {
+      var condition = jsonDecode(weatherdata)['weather'][0]['id'];
+      var temp = jsonDecode(weatherdata)['main']['temp'];
+      temperature = temp.toInt();
+      cityname = jsonDecode(weatherdata)['name'];
+      message = weatherModel.getMessage(temperature!);
+      condi = weatherModel.getWeatherIcon(condition!);
+    }
+    catch(e) {print('Error handling JSON data: $e');}
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

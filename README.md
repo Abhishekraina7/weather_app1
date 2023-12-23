@@ -27,5 +27,4 @@
 * Flutter's Geolocator Package : https://pub.dev/packages/geolocator
 * Flutter's HTTP package : https://pub.dev/packages/http
 * Flutter's Spinkit Package : https://pub.dev/packages/flutter_spinkit
-* 
 * StackOverFlow was the Major support for me solving the Errors encountered.

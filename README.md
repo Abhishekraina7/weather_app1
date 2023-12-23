@@ -21,3 +21,11 @@
 * Understands and manages widget lifecycles for efficient UI updates.
 * Employs asynchronous programming techniques for handling API calls.
 * Incorporates a splash screen during app launch for a smooth user experience.
+
+## Resources that made this project a success
+* Open Weather API : https://openweathermap.org/api
+* Flutter's Geolocator Package : https://pub.dev/packages/geolocator
+* Flutter's HTTP package : https://pub.dev/packages/http
+* Flutter's Spinkit Package : https://pub.dev/packages/flutter_spinkit
+* 
+* StackOverFlow was the Major support for me solving the Errors encountered.

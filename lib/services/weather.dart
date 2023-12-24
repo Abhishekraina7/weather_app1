@@ -5,8 +5,7 @@ const callByCityNameApi = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
 
-  // This function helps fetching weatherdata using the cityname
-
+  // This function helps in fetching weatherdata using the cityname
   Future<dynamic> getWeatherByCityName(String cityName)
   async{
       var url = Uri.parse('$callByCityNameApi?q=$cityName&appid=$apiKey&units=metric');
@@ -16,7 +15,6 @@ class WeatherModel {
   }
 
 // This function helps in fetching the location your current postion using the location of your phone's GPS
-
   Future<dynamic> getLocationWeather()
   async{
       Location location = Location();      // Object of the Location class from the location.dart file
